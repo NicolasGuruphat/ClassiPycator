@@ -24,4 +24,4 @@ if choice =="yes":
 					print("Error : file {} has not been moved".format(element))
 					print("Error : ",e )
 	
-fermer=input("Press enter to close...")
+close=input("Press enter to close...")
