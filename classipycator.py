@@ -1,6 +1,6 @@
 import os
 path=os.getcwd()
-windowPath = "C:\\Users\\nicog\\OneDrive\\Bureau\\Classification"
+repositoryPath = "C:\\Users\\nicog\\OneDrive\\Bureau\\Classification"
 extension=[element.lower() for element in os.listdir(windowPath)]
 print(extension)
 choice=""
