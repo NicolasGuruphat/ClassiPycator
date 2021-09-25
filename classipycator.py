@@ -24,8 +24,9 @@ if choice =="yes":
 				os.mkdir(repositoryPath+"\\"+currentFileExtension)
 
 			try :
-				os.rename("{}\\{}".format(path,element), "{}\\{}\\{}".format(repositoryPath,currentFileExtension,element))
-				print("{}\\{}".format(path,element)," move ", "({})".format(repositoryPath + "\\"+currentFileExtension))
+				os.rename("{}\\{}".format(path,element), 
+					      "{}\\{}\\{}".format(repositoryPath,currentFileExtension,element))
+				print("{}\\{} -> {}\\{}\\{}".format(path,element, repositoryPath,currentFileExtension,element))
 		
 			except Exception as e:
 					print("Error : file {} has not been moved".format(element))
