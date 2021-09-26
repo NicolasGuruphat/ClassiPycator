@@ -13,10 +13,11 @@ while(choice!="yes" and choice != "no"):
 		open_file = filedialog.askdirectory()
 		path = open_file
 		choice="repeat"
+		
 if choice =="yes":
 	for element in os.listdir(path):
 	#parcours tout les éléments présents dans le dossier où se trouve classiPycator
-		if element != "classipycator.py":
+		if element != __file__[__file__.rfind("\\")+1:]:
 			currentFileExtension= element[(element.rfind(".")+1):]
 
 			if currentFileExtension.lower() not in extension:
