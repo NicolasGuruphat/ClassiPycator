@@ -5,8 +5,9 @@ path = os.getcwd()
 folderPath = "C:\\Users\\nicog\\OneDrive\\Bureau\\Classification"
 extension = [element.lower() for element in os.listdir(folderPath)]
 choice = ""
+
 while (choice != "yes"):
-    choice = input("Do you want to classify this path :\n"+path+"\nyes/no\n")
+    choice = input("Do you want to classify this path :\n" + path + "\nyes/no\n")
     if choice == "no":
         root = Tk()
         root.withdraw()
