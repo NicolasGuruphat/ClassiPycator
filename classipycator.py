@@ -1,10 +1,11 @@
 import os
-from tkinter import Tk, filedialog
+from Tkinter import Tk, filedialog
+
 path = os.getcwd()
 folderPath = "C:\\Users\\nicog\\OneDrive\\Bureau\\Classification"
 extension = [element.lower() for element in os.listdir(folderPath)]
 choice = ""
-while (choice != "yes" and choice != "no"):
+while (choice != "yes"):
     choice = input("Do you want to classify this path :\n"+path+"\nyes/no\n")
     if choice == "no":
         root = Tk()
@@ -14,24 +15,23 @@ while (choice != "yes" and choice != "no"):
         path = open_file
         choice = "repeat"
 
-if choice == "yes":
-    for element in os.listdir(path):
-        # parcours tout les éléments présents dans le dossier où se trouve classiPycator
-        if element != __file__[__file__.rfind("\\")+1:]:
-            currentFileExtension = element[(element.rfind(".")+1):]
+for element in os.listdir(path):
+	# parcours tout les éléments présents dans le dossier où se trouve classiPycator
+	if element != __file__[__file__.rfind("\\")+1:]:
+		currentFileExtension = element[(element.rfind(".")+1):]
 
-            if currentFileExtension.lower() not in extension:
-                extension.append(currentFileExtension)
-                os.mkdir(folderPath+"\\"+currentFileExtension)
+		if currentFileExtension.lower() not in extension:
+			extension.append(currentFileExtension)
+			os.mkdir(folderPath+"\\"+currentFileExtension)
 
-            try:
-                os.rename("{}\\{}".format(path, element),
-                          "{}\\{}\\{}".format(folderPath, currentFileExtension, element))
-                print("{}\\{} -> {}\\{}\\{}".format(path, element,
-                      folderPath, currentFileExtension, element))
+		try:
+			os.rename("{}\\{}".format(path, element),
+						"{}\\{}\\{}".format(folderPath, currentFileExtension, element))
+			print("{}\\{} -> {}\\{}\\{}".format(path, element,
+					folderPath, currentFileExtension, element))
 
-            except Exception as e:
-                print("Error : file {} has not been moved".format(element))
-                print("Error : ", e)
+		except Exception as e:
+			print("Error : file {} has not been moved".format(element))
+			print("Error : ", e)
 
 close = input("Press enter to close...")
