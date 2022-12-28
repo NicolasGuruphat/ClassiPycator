@@ -1,9 +1,8 @@
 import os
-from Tkinter import Tk, filedialog
+from tkinter import Tk, filedialog
 
 path = os.getcwd()
-folderPath = "C:\\Users\\nicog\\OneDrive\\Bureau\\Classification"
-extension = [element.lower() for element in os.listdir(folderPath)]
+folderPath = os.getcwd()
 choice = ""
 
 while (choice != "yes"):
@@ -16,8 +15,22 @@ while (choice != "yes"):
         path = open_file
         choice = "repeat"
 
+choice=""
+
+folderPath = path
+while (choice != "yes"):
+	choice = input("Do you want to classify in this path :\n" + folderPath + "\nyes/no\n")
+	if choice == "no":
+		root = Tk()
+		root.withdraw()
+		root.attributes('-topmost', True)
+		open_file = filedialog.askdirectory()
+		folderPath = open_file
+		choice = "repeat"
+
+extension = [element.lower() for element in os.listdir(folderPath)]
+
 for element in os.listdir(path):
-	# parcours tout les éléments présents dans le dossier où se trouve classiPycator
 	if element != __file__[__file__.rfind("\\")+1:]:
 		currentFileExtension = element[(element.rfind(".")+1):]
 
