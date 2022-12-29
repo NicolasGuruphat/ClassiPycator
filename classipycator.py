@@ -28,7 +28,12 @@ while (choice != "yes"):
 		folderPath = open_file
 		choice = "repeat"
 
-extension = [element.lower() for element in os.listdir(folderPath)]
+# extension = [element.lower() for element in os.listdir(folderPath)]
+
+extension = []
+
+foledPath=folderPath+"\\Classi"
+os.mkdir(folderPath)
 
 for element in os.listdir(path):
 	if element != __file__[__file__.rfind("\\")+1:]:
